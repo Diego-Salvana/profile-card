@@ -1,0 +1,93 @@
+@use 'variables';
+@use 'sass:color';
+
+$third-of-height-box: 160px;
+
+.card-container {
+   width: 90%;
+   max-width: 390px;
+   min-width: 340px;
+   border-radius: 15px;
+   overflow: hidden;
+}
+
+.card-top {
+   width: 100%;
+   height: $third-of-height-box;
+   background: url('../images/bg-pattern-card.svg');
+   background-size: cover;
+   position: relative;
+
+   .img-profile-container {
+      width: 120px;
+      height: 120px;
+      border: 6px solid white;
+      border-radius: 50%;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: -100%;
+      margin: auto;
+
+      img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+   }
+}
+
+.card-bottom {
+   width: 100%;
+   height: $third-of-height-box * 1.7;
+   background-color: white;
+   display: flex;
+   flex-direction: column;
+
+   .personal-info {
+      width: 100%;
+      flex-grow: 1;
+      margin-top: 80px;
+      text-align: center;
+
+      span {
+         font-size: 20px;
+      }
+
+      .age {
+         @include variables.thinText();
+         padding-left: 10px;
+      }
+
+      p {
+         @include variables.thinText();
+         margin-top: 10px;
+      }
+   }
+
+   .stats {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 30px 50px;
+      border-top: 1px solid lighten(variables.$dark-gray, 30%);
+
+      div {
+         min-width: 62px;
+         text-align: center;
+      }
+
+      p {
+         @include variables.thinText();
+         font-size: 10px;
+         padding-top: 5px;
+         letter-spacing: 2px;
+      }
+   }
+}
+
+.text-bold {
+   @include variables.boldTitle();
+}

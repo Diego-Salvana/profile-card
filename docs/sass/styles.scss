@@ -1,0 +1,75 @@
+@use 'variables';
+@use 'card';
+
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+$isDesktop: map-get(variables.$layout, desktop);
+%bg-container {
+   position: absolute;
+   width: 100vw;
+   height: 100vw;
+   min-width: 700px;
+   min-height: 700px;
+   max-width: 1000px;
+   max-height: 1000px;
+   z-index: -1;
+}
+
+*,
+*::before,
+*::after {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Kumbh Sans', sans-serif;
+}
+
+body {
+   background-color: variables.$dark-cyan;
+   min-height: 100vh;
+   overflow: hidden;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.bg-img-container {
+   @extend %bg-container;
+   top: 0;
+   left: 0;
+}
+
+.bg-img-container-bottom {
+   @extend %bg-container;
+   bottom: 0;
+   right: 0;
+}
+
+.bg-img {
+   width: 100%;
+   position: relative;
+
+   &.top {
+      top: -50%;
+      left: -60%;
+   }
+
+   &.bottom {
+      bottom: -50%;
+      right: -60%;
+   }
+
+   @media (min-width: $isDesktop) {
+      &.top {
+         transform: scale(1.1);
+         top: -500px;
+         left: -200px;
+      }
+
+      &.bottom {
+         transform: scale(1.1);
+         bottom: -600px;
+         right: -150px;
+      }
+   }
+}
