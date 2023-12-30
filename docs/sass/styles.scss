@@ -4,8 +4,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
 
 $isDesktop: map-get(variables.$layout, desktop);
-%bg-container {
-   position: absolute;
+%bg-img {
+   position: fixed;
    width: 100vw;
    height: 100vw;
    min-width: 700px;
@@ -33,43 +33,34 @@ body {
    align-items: center;
 }
 
-.bg-img-container {
-   @extend %bg-container;
+.bg-img-top {
+   @extend %bg-img;
+   background-image: url('../images/bg-pattern-top.svg');
+   background-size: contain;
    top: 0;
    left: 0;
+   transform: translate(-65%, -60%);
+
+   @media (min-width: 900px) {
+      transform: translate(-45%, -55%);
+   }
+   @media (min-width: $isDesktop) {
+      transform: scale(1.1) translate(-140px, -46%) !important;
+   }
 }
 
-.bg-img-container-bottom {
-   @extend %bg-container;
+.bg-img-bottom {
+   @extend %bg-img;
+   background-image: url('../images/bg-pattern-bottom.svg');
+   background-size: contain;
    bottom: 0;
    right: 0;
-}
+   transform: translate(65%, 50%);
 
-.bg-img {
-   width: 100%;
-   position: relative;
-
-   &.top {
-      top: -50%;
-      left: -60%;
+   @media (min-width: 900px) {
+      transform: translate(45%, 55%);
    }
-
-   &.bottom {
-      bottom: -50%;
-      right: -60%;
-   }
-
    @media (min-width: $isDesktop) {
-      &.top {
-         transform: scale(1.1);
-         top: -500px;
-         left: -200px;
-      }
-
-      &.bottom {
-         transform: scale(1.1);
-         bottom: -600px;
-         right: -150px;
-      }
+      transform: scale(1.1) translate(120px, 55%) !important;
    }
 }

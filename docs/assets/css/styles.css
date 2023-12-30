@@ -31,6 +31,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  text-indent: -999px;
 }
 
 .card-bottom {
@@ -84,8 +85,8 @@
   color: hsl(229, 23%, 23%);
 }
 
-.bg-img-container-bottom, .bg-img-container {
-  position: absolute;
+.bg-img-bottom, .bg-img-top {
+  position: fixed;
   width: 100vw;
   height: 100vw;
   min-width: 700px;
@@ -113,38 +114,39 @@ body {
   align-items: center;
 }
 
-.bg-img-container {
+.bg-img-top {
+  background-image: url("../images/bg-pattern-top.svg");
+  background-size: contain;
   top: 0;
   left: 0;
+  transform: translate(-65%, -60%);
 }
-
-.bg-img-container-bottom {
-  bottom: 0;
-  right: 0;
-}
-
-.bg-img {
-  width: 100%;
-  position: relative;
-}
-.bg-img.top {
-  top: -50%;
-  left: -60%;
-}
-.bg-img.bottom {
-  bottom: -50%;
-  right: -60%;
+@media (min-width: 900px) {
+  .bg-img-top {
+    transform: translate(-45%, -55%);
+  }
 }
 @media (min-width: 1440px) {
-  .bg-img.top {
-    transform: scale(1.1);
-    top: -500px;
-    left: -200px;
+  .bg-img-top {
+    transform: scale(1.1) translate(-140px, -46%) !important;
   }
-  .bg-img.bottom {
-    transform: scale(1.1);
-    bottom: -600px;
-    right: -150px;
+}
+
+.bg-img-bottom {
+  background-image: url("../images/bg-pattern-bottom.svg");
+  background-size: contain;
+  bottom: 0;
+  right: 0;
+  transform: translate(65%, 50%);
+}
+@media (min-width: 900px) {
+  .bg-img-bottom {
+    transform: translate(45%, 55%);
+  }
+}
+@media (min-width: 1440px) {
+  .bg-img-bottom {
+    transform: scale(1.1) translate(120px, 55%) !important;
   }
 }
 
